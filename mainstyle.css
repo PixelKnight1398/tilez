@@ -1,0 +1,208 @@
+html{
+	height: 100%;
+}
+
+body{
+	background: rgb(30, 30, 30);
+	height: 95%;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;   
+}
+
+#heading{
+  text-align: center;
+  background: rgb(50, 50, 50);
+  padding: 5px;
+}
+
+#title{
+  margin: 5px;
+  color: rgb(160, 160, 160);
+  font-size: 26px;
+  letter-spacing: 4px;
+}
+
+#subtitle{
+  margin: 5px;
+  color: rgba(180, 180, 180, 0.75);
+  letter-spacing: 3px;
+}
+
+#main{
+	height: 90%;
+	width: 100%;
+	margin-top: 5px;
+	text-align: center;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.pane{
+	background: rgb(50, 50, 50);
+	display: inline-block;
+	height: 100%;
+	position: absolute;
+}
+
+#leftPane{
+	width: 15%;
+	top: 0;
+	left: 0;
+}
+
+#centerPane{
+	background: 0;
+	width: 69%;
+	left: 15.5%;
+	top: 0;
+}
+
+#rightPane{
+	width: 15%;
+	left: 85%;
+	top: 0;
+}
+
+#toolBar{
+	height: 4%;
+	width: 100%;
+	background: rgb(50, 50, 50);
+	margin-bottom: 1%;
+	text-align: right;
+}
+
+.tool{
+	height: 80%;
+	width: 4%;
+	margin-top: 3px;
+	margin-right: 3px;
+	background-color: rgb(55, 55, 55);
+	box-shadow: 1px 1px 3px white;
+	display: inline-block;
+	text-align: center;
+	border-radius: 2px;
+	font-size: 20px;
+}
+
+.tool:hover{
+	box-shadow: 0px 0px 0px black;
+	position: relative;
+	top: 1px;
+	left: 1px;
+	cursor: pointer;
+}
+
+#canvasContainer{
+	height: 95%;
+	width: 100%;
+}
+
+#myCanvas{
+	border: 1px solid rgb(50, 50, 50);
+}
+
+#arrayManager{
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+#tileManager{
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.arrayInfo{
+	background-color: rgba(60, 60, 60, 0.5);
+	box-shadow: 5px 5px 10px black;
+	margin-bottom: 10px;
+	text-align: left;
+	padding: 5px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: rgb(160, 160, 160);
+}
+
+.tileInfo{
+	background-color: rgba(60, 60, 60, 0.5);
+	box-shadow: 5px 5px 10px black;
+	margin-bottom: 10px;
+	text-align: center;
+	padding: 5px;
+	width: 80%;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	color: rgb(160, 160, 160);
+	cursor: pointer;
+}
+
+.tileInfo:hover{
+	background-color: rgba(70, 70, 70, 0.5);
+}
+
+.tileInfo:focus{
+	border: 2px solid white;
+}
+
+.tilePreview{
+	height: 90px;
+	width: 100%;
+}
+
+.createButton{
+	width: 90%;
+	height: 15px;
+	border: 1px solid gray;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(60, 60, 60);
+}
+
+.createButton:hover{
+	background-color: rgb(70, 70, 70);
+	cursor: pointer;
+}
+
+#createArrayForm{
+	background-color: rgb(70, 70, 70);
+	display: none;
+	position: absolute;
+	left: 25%;
+	top: 30%;
+	width: 50%;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+}
+
+#createTileForm{
+	background-color: rgb(70, 70, 70);
+	display: none;
+	position: absolute;
+	left: 25%;
+	top: 30%;
+	width: 50%;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+}
+
+#errorMessage{
+	color: red;
+}
+
+#errorMessage2{
+	color: red;
+}

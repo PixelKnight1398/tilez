@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Tilez Creator</title>
+    <link rel = "stylesheet" style = "text/css" href = "mainstyle.css"/>
+	<script src = "main.js"></script>
+	<script src = "tools.js"></script>
+	<script src = "tilemap.js"></script>
+	<script src = "tile.js"></script>
+	<script src = "input.js"></script>
+    <script src = "init.js"></script>
+  </head>
+  
+  <body onload = "init()" onresize = "resize()">
+    <div id = "heading">
+      <h3 id = "title">Tilez Creator</h3>
+      <p id = "subtitle">The Tile Map Creation Tool</p>
+    </div>
+	<div id = "main">
+		<div id = "leftPane" class = "pane">
+			<div id = "arrayManager">
+				<div id = "arrayList">
+					
+				</div>
+				<div class = "createButton" onmousedown = "createNewArray()">
+					<span>+</span>
+				</div>
+			</div>
+		</div>
+		<div id = "centerPane" class = "pane">
+			<div id = "toolBar">
+				<span style = "color: white" onclick = "confirm('Welcome to Tilez Creator! The left pane lets you create new tilemaps, while the right lets you create new tiles to fit in those tile maps.  The center of the screen is the editor, use the arrow keys to move your tilemap, and the zoom buttons on the top right for zooming in and out.  To start, create a tilemap on the left with the requested constraints.  Once you have done that, create a few new tiles on the right with the requested constraints.  Then just click on a new tile, and then click on a tile in the editor.  It should change automatically.  Edit a few more tiles, and when you are finished, click the export button.  Exporting it gives you the code and array for the tilemaps that you have created.  Good Luck! =)')">Help?</span>
+				<span id = "currentZoom">100%</span>
+				<div id = "zoomin" class = "tool" onmousedown = "zoomin()">
+					+
+				</div>
+				<div id = "zoomout" class = "tool" onmousedown = "zoomout()">
+					-
+				</div>
+			</div>
+			<div id = "canvasContainer">
+				<canvas id = "myCanvas"></canvas>
+			</div>
+		</div>
+		<div id = "rightPane" class = "pane">
+			<div id = "tileManager">
+				<div id = "tileList">
+				
+				</div>
+				<div class = "createButton" onmousedown = "createNewTile()">
+					<span>+</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id = "createArrayForm">
+		<span>Map Name:</span><br />
+		<input type = "text" id = "mapName"><br /><br />
+		<span>Map Width:</span><br />
+		<input type = "number" id = "mapWidth"><br /><br />
+		<span>Map Height:</span><br />
+		<input type = "number" id = "mapHeight"><br /><br />
+		<span>Tile Width:</span><br />
+		<input type = "number" id = "tileWidth"><br /><br />
+		<span>Tile Height:</span><br />
+		<input type = "number" id = "tileHeight"><br /><br />
+		<input type = "button" value = "CREATE" onmousedown = "initArray()"><input type = "button" value = "CLOSE" onmousedown = "closeArrayCreator()">
+		<h4 id = "errorMessage"></h4>
+	</div>
+	<div id = "createTileForm">
+		<span>Tile Name:</span><br />
+		<input type = "text" id = "tileName"><br /><br />
+		<input type = "button" value = "CREATE" onmousedown = "initTile()"><input type = "button" value = "CLOSE" onmousedown = "closeTileCreator()">
+		<h4 id = "errorMessage2"></h4>
+	</div>
+  </body>
+  
+</html>
