@@ -1,10 +1,10 @@
 //tilemap constructor
 var tilemap = function(name, w, h, tw, th){
 	this.name = name;
-	this.width = w;
-	this.height = h;
-	this.tilewidth = tw;
-	this.tileheight = th;
+	this.width = parseInt(w);
+	this.height =parseInt(h);
+	this.tilewidth = parseInt(tw);
+	this.tileheight = parseInt(th);
 	this.tileValues = [];
 	
 	this.initValues = function(){

@@ -20,8 +20,33 @@ var keyBoard = {
 	},
 };
 
-window.addEventListener("keydown", function(){keyBoard.keydown(event)});
-window.addEventListener("keyup", function(){keyBoard.keyup(event)});
+var mouse = {
+	isPressed: false,
+	xPos: 0,
+	yPos: 0,
+	canvasX: 0,
+	canvasY: 0,
+	
+	mouseDown: function(z){
+		this.isPressed = true;
+	},
+	mouseUp: function(z){
+		this.isPressed = false;
+		checkCanvas();
+	},
+	mouseMove: function(z){
+		this.xPos = z.clientX;
+		this.yPos = z.clientY;
+		this.canvasX = z.clientX - Math.floor(c.getBoundingClientRect().left);
+		this.canvasY = z.clientY - Math.floor(c.getBoundingClientRect().top);
+	},
+}
+
+window.addEventListener("keydown", function(event){keyBoard.keydown(event)});
+window.addEventListener("keyup", function(event){keyBoard.keyup(event)});
+window.addEventListener("mousedown", function(event){mouse.mouseDown(event)});
+window.addEventListener("mouseup", function(event){mouse.mouseUp(event)});
+window.addEventListener("mousemove", function(event){mouse.mouseMove(event)});
 
 var checkInput = function(){
 	if(keyBoard.ispressed(keyBoard.LEFT)){
@@ -36,8 +61,4 @@ var checkInput = function(){
 	if(keyBoard.ispressed(keyBoard.UP)){
 		offsety -= 1;
 	}
-	draw();
-	window.requestAnimationFrame(checkInput);
 }
-
-window.requestAnimationFrame(checkInput);

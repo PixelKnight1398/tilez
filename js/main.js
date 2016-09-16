@@ -1,3 +1,10 @@
+///////////////*BUG FIXES*/////////////////
+//fix the canvas so it doesn't draw on tilemaps that aren't currently showing
+//filter the inputs from the users
+//fix canvas?
+
+
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -18,6 +25,12 @@ var draw = function(){
 			for(var j = 0; j < tilemaps[i].height; j++){
 				for(var k = 0; k < tilemaps[i].width; k++){
 					ctx.strokeRect(offsetx + (k * tilemaps[i].tilewidth), offsety + (j * tilemaps[i].tileheight), tilemaps[i].tilewidth, tilemaps[i].tileheight);
+					for(var z = 0; z < tiles.length; z++){
+						if(tiles[z].tileID == tilemaps[i].tileValues[j][k]){
+							ctx.fillStyle = tiles[z].color;
+							ctx.fillRect(offsetx + (k * tilemaps[i].tilewidth), offsety + (j * tilemaps[i].tileheight), tilemaps[i].tilewidth, tilemaps[i].tileheight);
+						}
+					}
 				}
 			}
 		}
@@ -49,7 +62,6 @@ var buildTileList = function(){
 	document.getElementById("tileList").innerHTML = "";
 	for(var i = 0; i < tiles.length; i++){
 		var tempId = tiles[i].name + "Info";
-		console.log(tempId);
 		document.getElementById("tileList").innerHTML += 
 		"<div class = 'tileInfo' id = '" + tiles[i].name + "Info' onmousedown = 'toggleTile(" + tempId + "," + tiles[i].tileID + ")'>" +
 		"<h3 class = 'tileName'>" + tiles[i].name + "</h3>" +

@@ -9,6 +9,9 @@ var init = function(){
 	c.height = document.getElementById("canvasContainer").getBoundingClientRect().height;
 	c.width = document.getElementById("canvasContainer").getBoundingClientRect().width;
 	ctx = c.getContext("2d");
+	loop();
+	tilemaps.push(new tilemap("MapOne", 5, 5, 50, 50));
+	buildArrayList();
 }
 
 var createNewArray = function(){
@@ -65,6 +68,10 @@ var initTile = function(){
 	buildTileList();
 	
 	draw();
-	
-	console.log(tiles);
+}
+
+var loop = function(){
+	checkInput();
+	draw();
+	window.requestAnimationFrame(loop);
 }
